@@ -45,7 +45,7 @@ export default {
             try {
                 return JSON.parse(props.list) || [];
             } catch (error) {
-                return props.list.length === 0 ? [] : [props.list];
+                return props?.list?.length === 0 ? [] : [props.list];
             }
         });
         const ruleType = ref(props.type ?? 'Ip');
