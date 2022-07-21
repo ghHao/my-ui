@@ -1,13 +1,17 @@
 <template>
     <div class="hello" style="width: 20%">
-        <h1>This is an Home Index1</h1>
+        <h6>This is an Home Index1</h6>
     </div>
 </template>
 
 <script>
+
 export default {
     name: 'homeIndex',
     components: {},
+    setup () {
+        console.log(process.env);
+    }
 };
 </script>
 

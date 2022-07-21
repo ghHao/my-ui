@@ -7,6 +7,7 @@
  */
 
 export function toTree (data, nodeKy, parentKey) {
+    debugger
     if (!Array.isArray(data)) {
         return [];
     }
