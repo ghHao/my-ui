@@ -5534,6 +5534,11 @@ vue-loader@^17.0.0:
     hash-sum "^2.0.0"
     loader-utils "^2.0.0"
 
+vue-router-auto@^2.0.0:
+  version "2.0.0"
+  resolved "http://192.168.1.153:4000/repository/npm-group/vue-router-auto/-/vue-router-auto-2.0.0.tgz#70dcbc5ba07a43ca4825c23230dfeecd37704655"
+  integrity sha512-CTugTjnxuuc1CREcXt4fMXmzDzJD+iC7xjfBNIubPMOe/dd0x+1gyxvQ4L/NBCIWc3SEtBOraxn16zyG2Kb7Sg==
+
 vue-router@^4.0.3:
   version "4.1.2"
   resolved "https://registry.npmmirror.com/vue-router/-/vue-router-4.1.2.tgz#ae08f63c9610afa6bff6743e8f128b7054d4c9f5"
