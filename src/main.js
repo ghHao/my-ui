@@ -11,3 +11,12 @@ app.use(store);
 app.use(router);
 app.use(Antd);
 app.mount('#app');
+
+// 微前端
+import microApp from '@micro-zoe/micro-app';
+import LifeCycles from "@/utils/microapp/LifeCycles";
+
+microApp.start({
+    destroy: true,
+    lifeCycles: LifeCycles
+});

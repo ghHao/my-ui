@@ -1034,6 +1034,11 @@
   resolved "https://registry.npmmirror.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@micro-zoe/micro-app@^0.8.8":
+  version "0.8.8"
+  resolved "http://192.168.1.153:4000/repository/npm-group/@micro-zoe/micro-app/-/micro-app-0.8.8.tgz#a5f3c649f5460889c818b954d6c388e21b687931"
+  integrity sha512-nT3DEOaZfNCqiBGoqktrJDxnAFUgOjyng+mn97jK3p9TZg1ao0LaXWwE2cuc63ZAPivjBiRE/BodIcn7DLnVBQ==
+
 "@node-ipc/js-queue@2.0.3":
   version "2.0.3"
   resolved "https://registry.npmmirror.com/@node-ipc/js-queue/-/js-queue-2.0.3.tgz#ac7fe33d766fa53e233ef8fedaf3443a01c5a4cd"
