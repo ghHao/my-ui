@@ -6,7 +6,7 @@ const routes = autoRouter({
     // 页面级的.vue存放位置，必传
     rc: require.context('@/views', true, /\.vue$/),
     // '/'的重定向，可选，默认为''
-    redirect: 'home',
+    redirect: 'security',
     // 页面级的.vue存放的文件夹，可选，默认为:views
     rootFile: 'views',
 });
@@ -22,9 +22,8 @@ const router = createRouter({
     routes
 });
 console.log('router', router.getRoutes());
-export default router;
 
-export function setName (routes) {
+export function setName(routes) {
     for (const route of routes) {
         if (!route.name) {
             route.name = route.path;
@@ -34,3 +33,6 @@ export function setName (routes) {
         }
     }
 }
+
+export default router;
+

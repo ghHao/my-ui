@@ -1,7 +1,7 @@
 const {defineConfig} = require('@vue/cli-service');
 const path = require("path");
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
@@ -17,6 +17,15 @@ module.exports = defineConfig({
     // lintOnSave：{ type:Boolean default:true } 问你是否使用eslint
     lintOnSave: false,
 
+    // 修改 pages 入口
+    pages: {
+        index: {
+            entry: 'examples/main.js',// 入口
+            template: 'public/index.html', // 模板
+            filename: 'index.html' // 输出文件
+        }
+    },
+
     /**
      * 如果你不需要生产环境的 source map，可以将其设置为 false 以加速生产环境构建。
      * 打包之后发现map文件过大，项目文件体积很大，设置为false就可以不输出map文件
@@ -28,24 +37,50 @@ module.exports = defineConfig({
     // Vue 兼容ie
     transpileDependencies: false,
 
-    chainWebpack (config) {
-        
+    chainWebpack(config) {
+
         // 路径替换
         config.resolve.alias
-        .set("@", resolve("src"))
-        .set("assets", resolve("src/assets"))
-        .set("components", resolve("src/components"))
-        .set("base", resolve("baseConfig"));
+            .set('@', path.resolve('examples'))
+            .set('~', path.resolve('packages'))
+            .set('src', path.resolve('src'))
+
+        // 把 packages 和 examples 加入编译，因为新增的文件默认是不被 webpack 处理的
+        config.module
+            .rule('js')
+            .include.add(/packages/)
+            .end()
+            .include.add(/examples/)
+            .end()
+            .use('babel')
+            .loader('babel-loader')
+            .tap(options => {
+                // 修改它的选项...
+                return options
+            })
+        // 添加vue-markdown-loader，使用webpack能识别md文件
+        config.module
+            .rule("md")
+            .test(/\.md/)
+            .use("vue-loader")
+            .loader("vue-loader")
+            .end()
+            .use("vue-markdown-loader")
+            .loader("vue-markdown-loader/lib/markdown-compiler")
+            .options({
+                raw: true,
+            })
     },
 
     configureWebpack: config => {
         // 关于打包后资源各部分占比的配置相关
-        if (process.env.NODE_ENV === 'production') {
-            const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-            config.plugins.push(
-                new BundleAnalyzerPlugin()
-            );
-        }
+        // if (process.env.NODE_ENV === 'production') {
+        //     const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+        //     config.plugins.push(
+        //         new BundleAnalyzerPlugin()
+        //     );
+        // }
+
         // 去除console.log打印以及注释
 
         // 生产环境打包，进行文件压缩

@@ -41,7 +41,7 @@ import {computed, ref} from "vue";
 import {message} from 'ant-design-vue';
 
 export default {
-    name: 'tagsInput',
+    name: 'TagsInput',
     props: ['list', 'type'],
     setup (props, {emit}) {
         const tagInputRef = ref(undefined);
