@@ -18,6 +18,7 @@
     "lib": "vue-cli-service build --target lib --name my-ui --dest lib src/index.js"
   },
   "dependencies": {
+    "@kangc/v-md-editor": "^2.3.18",
     "@micro-zoe/micro-app": "^0.8.8",
     "ant-design-vue": "^3.2.10",
     "babel-plugin-transform-remove-console": "^6.9.4",
